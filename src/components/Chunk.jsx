@@ -4,7 +4,7 @@ export function Chunk({ _id, role, parts }) {
   return (
     <div key={_id}>
       <div className={role == 'user' ? 'message user' : 'message ai'}>
-        <strong>{role == 'user' ? 'You' : 'Gemini'}:</strong> {parts[0].text}
+        <strong>{role == 'user' ? 'You' : 'Watson'}:</strong> {parts[0].text}
       </div>
       {parts[1]?.inline_data && (
         <div className='message system'>

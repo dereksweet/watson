@@ -13,7 +13,6 @@ export function ConversationFeed({ conversation = { chunks: [] } }) {
 
   return (
     <div className='conversation-feed' ref={feedRef}>
-      <h2>Conversation Feed</h2>
       <div className='messages'>
         {conversation?.chunks?.map((chunk) => (
           <Fragment key={chunk._id}>

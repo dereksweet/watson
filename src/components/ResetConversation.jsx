@@ -1,13 +1,13 @@
+import PropTypes from 'prop-types'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { resetConversation } from '../api/conversations.js'
 
-const code = 'test_conversation'
-
-export function ResetConversation() {
+export function ResetConversation({ conversationCode }) {
   const queryClient = useQueryClient()
   const resetConversationMutation = useMutation({
-    mutationFn: () => resetConversation(code),
-    onSuccess: () => queryClient.invalidateQueries(['conversations', code]),
+    mutationFn: () => resetConversation(conversationCode),
+    onSuccess: () =>
+      queryClient.invalidateQueries(['conversations', conversationCode]),
   })
 
   const handleSubmit = (e) => {
@@ -28,4 +28,8 @@ export function ResetConversation() {
       </button>
     </form>
   )
+}
+
+ResetConversation.propTypes = {
+  conversationCode: PropTypes.string.isRequired, // Must be a string and required
 }

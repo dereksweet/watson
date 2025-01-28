@@ -16,13 +16,53 @@ body {
   padding: 20px;
 }
 
+.page-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.conversation-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Adds spacing between elements */
+  border-bottom: 2px solid #ffffff;
+  margin-bottom: 15px;
+}
+
+.conversation-picker label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #e0e0e0; /* Softer white for dark UI */
+  margin-right: 10px;
+}
+
+.conversation-picker select {
+  padding: 8px;
+  font-size: 1rem;
+  background-color: #2d2d2d;
+  color: #ffffff;
+  border: 1px solid #555;
+  border-radius: 6px;
+  outline: none;
+  transition: border 0.2s ease-in-out;
+  margin-bottom: 10px;
+}
+
+.conversation-picker select:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 4px rgba(74, 144, 226, 0.5);
+}
+
 /* Chat Container - Fixed size and centered */
 .chat-container {
   background-color: #282a36;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   width: 800px;
-  height: 600px;
+  height: 800px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -80,15 +120,20 @@ body {
   color: #bbbbbb;
 }
 
+.conversation-feed-label {
+  font-size: 12px;
+}
+
 .conversation-feed {
   background-color: #191a21;
   border-radius: 5px;
   padding: 15px;
-  max-height: 400px; /* Ensure a fixed height for overflow */
+  max-height: 800px; /* Ensure a fixed height for overflow */
   overflow-y: auto;
   display: flex;
   flex-grow: 1;
   flex-direction: column;
+  margin-top: 10px;
 }
 
 .conversation-feed h2 {

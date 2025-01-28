@@ -1,18 +1,17 @@
+import PropTypes from 'prop-types'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useState, useRef } from 'react'
 import { sendFile } from '../api/conversations.js'
 
-const code = 'test_conversation'
-
-export function SendFile() {
+export function SendFile({ conversationCode }) {
   const [file, setFile] = useState('')
   const fileInputRef = useRef(null)
 
   const queryClient = useQueryClient()
   const sendFileMutation = useMutation({
-    mutationFn: () => sendFile(code, file),
+    mutationFn: () => sendFile(conversationCode, file),
     onSuccess: () => {
-      queryClient.invalidateQueries(['conversations', code])
+      queryClient.invalidateQueries(['conversations', conversationCode])
       setFile('')
       if (fileInputRef.current) {
         fileInputRef.current.value = ''
@@ -41,7 +40,7 @@ export function SendFile() {
           className='btn'
           disabled={!file || sendFileMutation.isPending}
         >
-          {sendFileMutation.isPending ? 'Sending...' : 'Send'}
+          {sendFileMutation.isPending ? 'Sending...' : 'Send File'}
         </button>
       </form>
       <small>
@@ -50,4 +49,8 @@ export function SendFile() {
       </small>
     </div>
   )
+}
+
+SendFile.propTypes = {
+  conversationCode: PropTypes.string.isRequired, // Must be a string and required
 }
