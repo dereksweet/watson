@@ -24,7 +24,7 @@ export function ResetConversation() {
       >
         {resetConversationMutation.isPending
           ? 'Resetting...'
-          : 'Reset Conversation'}
+          : 'Reset This Conversation'}
       </button>
     </form>
   )

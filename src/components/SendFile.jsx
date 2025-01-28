@@ -26,22 +26,28 @@ export function SendFile() {
   }
 
   return (
-    <form id='file-form' className='form' onSubmit={handleSubmit}>
-      <label htmlFor='file-upload'>Upload File:</label>
-      <input
-        type='file'
-        id='file'
-        name='file'
-        ref={fileInputRef}
-        onChange={(e) => setFile(e.target.files[0])}
-      />
-      <button
-        type='submit'
-        className='btn'
-        disabled={!file || sendFileMutation.isPending}
-      >
-        {sendFileMutation.isPending ? 'Sending...' : 'Send'}
-      </button>
-    </form>
+    <div>
+      <form id='file-form' className='form' onSubmit={handleSubmit}>
+        <label htmlFor='file-upload'>Upload Data File:</label>
+        <input
+          type='file'
+          id='file'
+          name='file'
+          ref={fileInputRef}
+          onChange={(e) => setFile(e.target.files[0])}
+        />
+        <button
+          type='submit'
+          className='btn'
+          disabled={!file || sendFileMutation.isPending}
+        >
+          {sendFileMutation.isPending ? 'Sending...' : 'Send'}
+        </button>
+      </form>
+      <small>
+        You can send any kind of custom data file you like so long as it is
+        simple text and not a binary file like a Word or Excel document.
+      </small>
+    </div>
   )
 }

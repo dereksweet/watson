@@ -104,33 +104,47 @@ body {
   flex-direction: column;
   gap: 10px;
   overflow-anchor: auto;
+  width: 100%; /* Ensure it takes full width */
 }
 
+/* General Message Style */
 .message {
-  padding: 10px;
-  border-radius: 5px;
+  padding: 12px 15px;
+  border-radius: 8px;
   line-height: 1.5;
-  max-width: 90%;
   word-wrap: break-word;
+  max-width: 100%; /* Ensure it spans full width */
+  width: fit-content;
 }
 
+/* User Messages (Right-aligned, wider) */
 .message.user {
-  background-color: #6272a4;
+  background-color: #4e5d78; /* Soft muted blue */
+  color: #ffffff;
   align-self: flex-end;
+  max-width: 100%;
 }
 
+/* System Messages (Centered) */
 .message.system {
+  background-color: #3a3f4b; /* Subtle dark gray */
+  color: #a0c4ff; /* Muted cyan */
   font-style: italic;
-  color: #8be9fd;
   align-self: center;
+  max-width: 80%;
 }
 
+/* AI Messages (Left-aligned, wider) */
 .message.ai {
-  background-color: #50fa7b;
-  color: #282a36;
+  background-color: #3b5249; /* Dark muted green */
+  color: #d4f1c5; /* Softer green text */
   font-weight: bold;
   align-self: flex-start;
+  max-width: 100%;
 }
+
+/* Ensure the feed takes up the entire space
+
 
 /* Responsive Design */
 @media (max-width: 900px) {
