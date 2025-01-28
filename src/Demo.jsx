@@ -17,13 +17,12 @@ export function Demo() {
   }
 
   return (
-    <div style={{ padding: 8 }}>
+    <div className='chat-container'>
       <ResetConversation></ResetConversation>
-      <hr></hr>
-      <SendPrompt></SendPrompt>
-      <hr></hr>
-      <SendFile></SendFile>
-      <hr></hr>
+      <div className='input-section'>
+        <SendPrompt></SendPrompt>
+        <SendFile></SendFile>
+      </div>
       <ConversationFeed
         conversation={conversation.conversation}
       ></ConversationFeed>

@@ -17,17 +17,15 @@ export function ResetConversation() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <input
-          type='submit'
-          value={
-            resetConversationMutation.isPending
-              ? 'Resetting...'
-              : 'Reset Conversation'
-          }
-          disabled={resetConversationMutation.isPending}
-        />
-      </div>
+      <button
+        id='reset-btn'
+        className='btn reset-btn'
+        disabled={resetConversationMutation.isPending}
+      >
+        {resetConversationMutation.isPending
+          ? 'Resetting...'
+          : 'Reset Conversation'}
+      </button>
     </form>
   )
 }

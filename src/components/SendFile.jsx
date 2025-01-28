@@ -1,11 +1,12 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { sendFile } from '../api/conversations.js'
 
 const code = 'test_conversation'
 
 export function SendFile() {
   const [file, setFile] = useState('')
+  const fileInputRef = useRef(null)
 
   const queryClient = useQueryClient()
   const sendFileMutation = useMutation({
@@ -13,6 +14,9 @@ export function SendFile() {
     onSuccess: () => {
       queryClient.invalidateQueries(['conversations', code])
       setFile('')
+      if (fileInputRef.current) {
+        fileInputRef.current.value = ''
+      }
     },
   })
 
@@ -22,21 +26,22 @@ export function SendFile() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor='file'>File: </label>
-        <input
-          type='file'
-          name='file'
-          id='file'
-          onChange={(e) => setFile(e.target.files[0])}
-        />
-      </div>
+    <form id='file-form' className='form' onSubmit={handleSubmit}>
+      <label htmlFor='file-upload'>Upload File:</label>
       <input
-        type='submit'
-        value={sendFileMutation.isPending ? 'Sending...' : 'Send'}
-        disabled={!file || sendFileMutation.isPending}
+        type='file'
+        id='file'
+        name='file'
+        ref={fileInputRef}
+        onChange={(e) => setFile(e.target.files[0])}
       />
+      <button
+        type='submit'
+        className='btn'
+        disabled={!file || sendFileMutation.isPending}
+      >
+        {sendFileMutation.isPending ? 'Sending...' : 'Send'}
+      </button>
     </form>
   )
 }

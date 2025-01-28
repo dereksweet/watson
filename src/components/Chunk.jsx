@@ -1,21 +1,17 @@
 import PropTypes from 'prop-types'
 
 export function Chunk({ _id, role, parts }) {
-  console.log(parts)
-
   return (
-    <article key={_id}>
-      <span>
-        <span className='roleLabel'>{role == 'user' ? 'You' : 'Watson'}:</span>
-        <span className='chunkText'>{parts[0].text}</span>
-        {parts[1]?.inline_data && (
-          <span>
-            <br></br>
-            <i>Data File Sent.</i>
-          </span>
-        )}
-      </span>
-    </article>
+    <div key={_id}>
+      <div className={role == 'user' ? 'message user' : 'message ai'}>
+        <strong>{role == 'user' ? 'You' : 'Gemini'}:</strong> {parts[0].text}
+      </div>
+      {parts[1]?.inline_data && (
+        <div className='message system'>
+          <em>Data File Sent.</em>
+        </div>
+      )}
+    </div>
   )
 }
 

@@ -22,22 +22,23 @@ export function SendPrompt() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor='prompt'>Prompt: </label>
-        <input
-          type='text'
-          name='prompt'
-          id='prompt'
-          value={prompt}
-          onChange={(e) => setPrompt(e.target.value)}
-        />
-      </div>
+    <form id='text-form' className='form' onSubmit={handleSubmit}>
+      <label htmlFor='prompt'>Prompt:</label>
       <input
-        type='submit'
-        value={sendPromptMutation.isPending ? 'Sending...' : 'Send'}
-        disabled={!prompt || sendPromptMutation.isPending}
+        type='text'
+        id='prompt'
+        name='prompt'
+        placeholder='Type your message here...'
+        value={prompt}
+        onChange={(e) => setPrompt(e.target.value)}
       />
+      <button
+        type='submit'
+        className='btn'
+        disabled={!prompt || sendPromptMutation.isPending}
+      >
+        {sendPromptMutation.isPending ? 'Sending...' : 'Send'}
+      </button>
     </form>
   )
 }
