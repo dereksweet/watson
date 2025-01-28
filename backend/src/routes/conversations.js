@@ -5,8 +5,6 @@ import { requireAuth } from '../middleware/jwt.js'
 
 import multer from 'multer'
 
-const user_id = '9462777'
-
 // Configure multer for handling file uploads
 const upload = multer()
 
@@ -14,7 +12,7 @@ export function conversationRoutes(app) {
   app.get('/api/v1/conversations/:code', requireAuth, async (req, res) => {
     try {
       const conversationCode = req.params.code
-      const conversation = await getConversation(user_id, conversationCode)
+      const conversation = await getConversation(req.auth.sub, conversationCode)
 
       res.json({ conversation })
     } catch (err) {
@@ -26,12 +24,12 @@ export function conversationRoutes(app) {
   app.delete('/api/v1/conversations/:code', requireAuth, async (req, res) => {
     try {
       const conversationCode = req.params.code
-      await deleteConversation(user_id, conversationCode)
+      await deleteConversation(req.auth.sub, conversationCode)
 
       res.json({
         status: 'SUCCESS',
         deleted_conversation_code: conversationCode,
-        deleted_user_id: user_id,
+        deleted_user_id: req.auth.sub,
       })
     } catch (err) {
       console.error('Error on DELETE /conversations/:code', err)
@@ -51,14 +49,14 @@ export function conversationRoutes(app) {
       filePath = await saveFile(req.file)
 
       const conversationCode = req.params.code
-      let conversation = await getConversation(user_id, conversationCode)
+      let conversation = await getConversation(req.auth.sub, conversationCode)
 
       const response = await sendPrompt(conversation, prompt, filePath)
 
       if (conversation) {
         await updateConversation(conversation, prompt, filePath, response)
       } else {
-        conversation = await createConversation(user_id, conversationCode, prompt, filePath, response)
+        conversation = await createConversation(req.auth.sub, conversationCode, prompt, filePath, response)
       }
 
       res.status(200).json({ response })
