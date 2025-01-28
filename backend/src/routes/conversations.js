@@ -1,6 +1,7 @@
 import { saveFile, deleteFile } from '../helpers/files.js'
 import { createConversation, updateConversation, deleteConversation, getConversation } from '../services/conversations.js'
 import { sendPrompt } from '../services/gemini.js'
+import { requireAuth } from '../middleware/jwt.js'
 
 import multer from 'multer'
 
@@ -10,7 +11,7 @@ const user_id = '9462777'
 const upload = multer()
 
 export function conversationRoutes(app) {
-  app.get('/api/v1/conversations/:code', async (req, res) => {
+  app.get('/api/v1/conversations/:code', requireAuth, async (req, res) => {
     try {
       const conversationCode = req.params.code
       const conversation = await getConversation(user_id, conversationCode)
@@ -22,7 +23,7 @@ export function conversationRoutes(app) {
     }
   })
 
-  app.delete('/api/v1/conversations/:code', async (req, res) => {
+  app.delete('/api/v1/conversations/:code', requireAuth, async (req, res) => {
     try {
       const conversationCode = req.params.code
       await deleteConversation(user_id, conversationCode)
@@ -38,7 +39,7 @@ export function conversationRoutes(app) {
     }
   })
 
-  app.post('/api/v1/conversations/:code', upload.single('file'), async (req, res) => {
+  app.post('/api/v1/conversations/:code', requireAuth, upload.single('file'), async (req, res) => {
     const prompt = req.body.prompt?.trim()
 
     if (!prompt) {
