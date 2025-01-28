@@ -2,13 +2,15 @@ import PropTypes from 'prop-types'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useState } from 'react'
 import { sendPrompt } from '../api/conversations.js'
+import { useAuth } from '../contexts/AuthContext.jsx'
 
 export function SendPrompt({ conversationCode }) {
   const [prompt, setPrompt] = useState('')
+  const [token] = useAuth()
 
   const queryClient = useQueryClient()
   const sendPromptMutation = useMutation({
-    mutationFn: () => sendPrompt(conversationCode, prompt),
+    mutationFn: () => sendPrompt(token, conversationCode, prompt),
     onSuccess: () => {
       queryClient.invalidateQueries(['conversations', conversationCode])
       setPrompt('')

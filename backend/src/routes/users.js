@@ -6,7 +6,6 @@ const upload = multer()
 export function userRoutes(app) {
   app.post('/api/v1/user/signup', upload.none(), async (req, res) => {
     try {
-      console.log(req.body)
       const user = await createUser(req.body)
       return res.status(201).json({ username: user.username })
     } catch (err) {
@@ -19,6 +18,9 @@ export function userRoutes(app) {
   app.post('/api/v1/user/login', upload.none(), async (req, res) => {
     try {
       const token = await loginUser(req.body)
+
+      res.cookie('watson_token', token, { httpOnly: true, sameSite: 'strict' })
+
       return res.status(200).send({ token })
     } catch (err) {
       return res.status(400).send({
