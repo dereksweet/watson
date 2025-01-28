@@ -9,7 +9,7 @@ const user_id = '9462777'
 // Configure multer for handling file uploads
 const upload = multer()
 
-export function conversationsRoutes(app) {
+export function conversationRoutes(app) {
   app.get('/api/v1/conversations/:code', async (req, res) => {
     try {
       const conversationCode = req.params.code
