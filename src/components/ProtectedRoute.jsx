@@ -3,7 +3,14 @@ import { Navigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext.jsx'
 
 export const ProtectedRoute = ({ children }) => {
-  const [token] = useAuth()
+  const [token, , loading] = useAuth()
+
+  console.log('Loading:', loading, 'Token:', token)
+
+  if (loading) {
+    // Render a loading spinner or placeholder while token is being initialized
+    return <div>Loading...</div>
+  }
 
   if (!token) {
     // Redirect to /login if not authenticated

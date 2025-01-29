@@ -1,9 +1,19 @@
+import cors from 'cors'
+import multer from 'multer'
 import { createUser, loginUser, getUserInfoById } from '../services/users.js'
 
-import multer from 'multer'
 const upload = multer()
 
 export function userRoutes(app) {
+  app.use(
+    cors({
+      origin: 'http://localhost:5173', // Frontend origin
+      credentials: true, // Allow cookies to be sent
+    }),
+  )
+
+  app.options('*', cors())
+
   app.post('/api/v1/user/signup', upload.none(), async (req, res) => {
     try {
       const user = await createUser(req.body)
@@ -19,7 +29,11 @@ export function userRoutes(app) {
     try {
       const token = await loginUser(req.body)
 
-      res.cookie('watson_token', token, { httpOnly: true, sameSite: 'strict' })
+      res.cookie('watson_token', token, {
+        httpOnly: false,
+        sameSite: 'Lax',
+        secure: false,
+      })
 
       return res.status(200).send({ token })
     } catch (err) {

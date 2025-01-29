@@ -5,6 +5,7 @@ export const login = async ({ username, password }) => {
 
   const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user/login`, {
     method: 'POST',
+    credentials: 'include',
     body: formData,
   })
 
