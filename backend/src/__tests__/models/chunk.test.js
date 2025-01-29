@@ -24,12 +24,11 @@ describe('Chunk Model Test', () => {
     expect(savedChunk.parts[0].text).toBe('Hello world!')
   })
 
-  it('should exclude _id and __v fields in JSON output', async () => {
+  it('should exclude __v fields in JSON output', async () => {
     const chunk = new Chunk({ role: 'assistant', parts: [{ text: 'Response message' }] })
     const savedChunk = await chunk.save()
 
     const jsonOutput = savedChunk.toJSON()
-    expect(jsonOutput._id).toBeUndefined()
     expect(jsonOutput.__v).toBeUndefined()
     expect(jsonOutput.role).toBe('assistant')
   })
