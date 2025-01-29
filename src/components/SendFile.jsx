@@ -2,14 +2,16 @@ import PropTypes from 'prop-types'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useState, useRef } from 'react'
 import { sendFile } from '../api/conversations.js'
+import { useAuth } from '../contexts/AuthContext.jsx'
 
 export function SendFile({ conversationCode }) {
   const [file, setFile] = useState('')
   const fileInputRef = useRef(null)
+  const [token] = useAuth()
 
   const queryClient = useQueryClient()
   const sendFileMutation = useMutation({
-    mutationFn: () => sendFile(conversationCode, file),
+    mutationFn: () => sendFile(token, conversationCode, file),
     onSuccess: () => {
       queryClient.invalidateQueries(['conversations', conversationCode])
       setFile('')
