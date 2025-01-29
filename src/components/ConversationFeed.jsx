@@ -17,7 +17,6 @@ export function ConversationFeed({ conversation = { chunks: [] } }) {
         {conversation?.chunks?.map((chunk) => (
           <Fragment key={chunk._id}>
             <Chunk {...chunk} />
-            <hr />
           </Fragment>
         ))}
       </div>

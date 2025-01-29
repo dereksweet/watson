@@ -2,15 +2,15 @@ import PropTypes from 'prop-types'
 
 export function Chunk({ _id, role, parts }) {
   return (
-    <div key={_id}>
-      <div className={role == 'user' ? 'message user' : 'message ai'}>
-        <strong>{role == 'user' ? 'You' : 'Watson'}:</strong> {parts[0].text}
+    <div
+      key={_id}
+      className={`message-wrapper ${
+        role === 'user' ? 'user-align' : 'ai-align'
+      }`}
+    >
+      <div className={`message ${role === 'user' ? 'user' : 'ai'}`}>
+        {parts[0].text}
       </div>
-      {parts[1]?.inline_data && (
-        <div className='message system'>
-          <em>Data File Sent.</em>
-        </div>
-      )}
     </div>
   )
 }
