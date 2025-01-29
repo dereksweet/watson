@@ -1,11 +1,7 @@
 import PropTypes from 'prop-types'
 import { useQueryClient } from '@tanstack/react-query'
 
-export function ConversationPicker({
-  conversationCode,
-  setConversationCode,
-  setConversationName,
-}) {
+export function ConversationPicker({ conversationCode, setConversationCode }) {
   const queryClient = useQueryClient()
 
   const conversations = [
@@ -14,9 +10,8 @@ export function ConversationPicker({
     { code: 'financial_data', name: 'Financial Data' },
   ]
 
-  const handleTabClick = (code, name) => {
+  const handleTabClick = (code) => {
     setConversationCode(code)
-    setConversationName(name)
     queryClient.invalidateQueries(['conversations', code])
   }
 

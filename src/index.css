@@ -79,6 +79,21 @@ body {
 }
 
 /* =============================
+   Demo Primary Container
+   ============================= */
+
+.chat-container {
+  background-color: #282a36;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  width: 800px;
+  height: 1000px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =============================
    Demo Header
    ============================= */
 
@@ -122,22 +137,7 @@ body {
 }
 
 /* =============================
-   Demo Chat Container
-   ============================= */
-
-.chat-container {
-  background-color: #282a36;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  width: 800px;
-  height: 1000px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-/* =============================
-   Demo Conversation Picker Tabs
+   Demo Conversation Context Tabs
    ============================= */
 
 .conversation-picker {
@@ -189,7 +189,7 @@ body {
 }
 
 /* =============================
-   Demo Input Section
+   Demo Form / Input Section
    ============================= */
 
 .input-section {
@@ -337,7 +337,7 @@ body {
 }
 
 /* =============================
-   Demo Reset Conversation
+   Demo Reset Conversation Button
    ============================= */
 
 .reset-conversation-wrapper {

@@ -16,7 +16,6 @@ export function Demo() {
   const [conversationCode, setConversationCode] = useState(
     'general_customer_service',
   )
-  const [, setConversationName] = useState('General Customer Service')
 
   const conversationQuery = useQuery({
     queryKey: ['conversations', conversationCode],
@@ -32,7 +31,6 @@ export function Demo() {
       <ConversationPicker
         conversationCode={conversationCode}
         setConversationCode={setConversationCode}
-        setConversationName={setConversationName}
       ></ConversationPicker>
       <div className='input-section'>
         <SendPrompt conversationCode={conversationCode}></SendPrompt>
