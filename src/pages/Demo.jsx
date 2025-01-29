@@ -16,9 +16,7 @@ export function Demo() {
   const [conversationCode, setConversationCode] = useState(
     'general_customer_service',
   )
-  const [conversationName, setConversationName] = useState(
-    'General Customer Service',
-  )
+  const [, setConversationName] = useState('General Customer Service')
 
   const conversationQuery = useQuery({
     queryKey: ['conversations', conversationCode],

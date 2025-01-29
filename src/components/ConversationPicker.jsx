@@ -7,42 +7,32 @@ export function ConversationPicker({
   setConversationName,
 }) {
   const queryClient = useQueryClient()
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    queryClient.invalidateQueries(['conversations', conversationCode])
+
+  const conversations = [
+    { code: 'general_customer_service', name: 'General Customer Service' },
+    { code: 'technical_assistance', name: 'Technical Assistance' },
+    { code: 'financial_data', name: 'Financial Data' },
+  ]
+
+  const handleTabClick = (code, name) => {
+    setConversationCode(code)
+    setConversationName(name)
+    queryClient.invalidateQueries(['conversations', code])
   }
 
   return (
     <div className='conversation-picker'>
-      <form
-        id='conversation-code-form'
-        className='conversation-picker__form'
-        onSubmit={handleSubmit}
-      >
-        <label
-          htmlFor='conversation-select'
-          className='conversation-picker__label'
-        >
-          Select a Conversation:
-        </label>
-
-        <select
-          id='conversation-code'
-          name='conversation-code'
-          value={conversationCode}
-          onChange={(e) => {
-            setConversationCode(e.target.value)
-            setConversationName(e.target.options[e.target.selectedIndex].text)
-          }}
-          className='conversation-picker__select'
-        >
-          <option value='general_customer_service'>
-            General Customer Service
-          </option>
-          <option value='technical_assistance'>Technical Assistance</option>
-          <option value='financial_data'>Financial Data</option>
-        </select>
-      </form>
+      <div className='conversation-tabs'>
+        {conversations.map(({ code, name }) => (
+          <button
+            key={code}
+            className={`tab-btn ${conversationCode === code ? 'active' : ''}`}
+            onClick={() => handleTabClick(code, name)}
+          >
+            {name}
+          </button>
+        ))}
+      </div>
     </div>
   )
 }
