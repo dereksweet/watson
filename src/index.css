@@ -35,8 +35,7 @@ body {
 .conversation-picker {
   display: flex;
   flex-direction: column;
-  gap: 8px; /* Adds spacing between elements */
-  margin-bottom: 15px;
+  gap: 8px;
 }
 
 .conversation-picker label {
@@ -69,7 +68,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   width: 800px;
-  height: 800px;
+  height: 1000px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -93,13 +92,20 @@ body {
 
 /* Reset Button */
 .reset-btn {
-  width: 40%;
-  margin-top: 20px;
+  white-space: nowrap; /* Prevents text from wrapping */
+  padding: 10px 20px; /* Ensures adequate spacing */
+  width: 300px;
 }
 
 /* Input Section */
 .input-section {
-  margin-bottom: 20px;
+  border-left: 2px solid #6272a4;
+  border-right: 2px solid #6272a4;
+  border-top: 2px solid #6272a4;
+  border-bottom: 3px solid #6272a4;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 10px;
 }
 
 .form {
@@ -133,21 +139,14 @@ body {
 
 .conversation-feed {
   background-color: #191a21;
-  border-radius: 5px;
   padding: 15px;
   max-height: 800px; /* Ensure a fixed height for overflow */
   overflow-y: auto;
   display: flex;
   flex-grow: 1;
   flex-direction: column;
-  margin-top: 10px;
-}
-
-.conversation-feed h2 {
-  border-bottom: 1px solid #44475a;
-  padding-bottom: 10px;
-  margin-bottom: 15px;
-  font-size: 20px;
+  border-left: 2px solid #6272a4;
+  border-right: 2px solid #6272a4;
 }
 
 /* Parent container must be flexbox */
@@ -322,7 +321,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: left;
-  margin-bottom: 20px;
 }
 
 .conversation-tabs {
@@ -337,7 +335,7 @@ body {
 .tab-btn {
   background: #3a3f4b;
   border: 2px solid #6272a4;
-  border-bottom: 3px solid #6272a4;
+  border-bottom: 0px solid #3a3f4b;
   color: #cccccc;
   font-size: 1rem;
   font-weight: bold;
@@ -352,26 +350,35 @@ body {
   top: 3px;
 }
 
-.tab-btn:hover {
-  background: #444b5a;
-  color: #ffffff;
-}
-
 /* Active tab now looks SELECTED */
 .tab-btn.active {
   background: #282a36;
-  color: #ffffff;
-  border-bottom: none; /* Merges into chat container */
-  font-weight: bold;
-  top: 0;
-  z-index: 2; /* Ensures it's on top */
+  color: #bbbbbb;
+  z-index: 1;
 }
 
 /* Inactive tabs look behind */
 .tab-btn:not(.active) {
   background: #3a3f4b;
-  color: #bbbbbb;
-  z-index: 1;
+  color: #ffffff;
+  font-weight: bold;
+  top: 0;
+  z-index: 2; /* Ensures it's on top */
+}
+
+.send-file-wrapper {
+  padding-bottom: 10px;
+}
+
+.reset-conversation-wrapper {
+  border: 2px solid #6272a4;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 10px;
+
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically (if needed) */
 }
 
 /* Responsive Design */

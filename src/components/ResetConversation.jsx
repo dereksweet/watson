@@ -19,17 +19,19 @@ export function ResetConversation({ conversationCode }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <button
-        id='reset-btn'
-        className='btn reset-btn'
-        disabled={resetConversationMutation.isPending}
-      >
-        {resetConversationMutation.isPending
-          ? 'Resetting...'
-          : 'Reset This Conversation'}
-      </button>
-    </form>
+    <div className='reset-conversation-wrapper'>
+      <form onSubmit={handleSubmit}>
+        <button
+          id='reset-btn'
+          className='btn reset-btn'
+          disabled={resetConversationMutation.isPending}
+        >
+          {resetConversationMutation.isPending
+            ? 'Resetting...'
+            : 'Reset This Conversation'}
+        </button>
+      </form>
+    </div>
   )
 }
 

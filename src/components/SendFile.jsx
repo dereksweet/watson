@@ -27,7 +27,7 @@ export function SendFile({ conversationCode }) {
   }
 
   return (
-    <div>
+    <div className='send-file-wrapper'>
       <form id='file-form' className='form' onSubmit={handleSubmit}>
         <label htmlFor='file-upload'>Upload Data File:</label>
         <input
@@ -46,8 +46,10 @@ export function SendFile({ conversationCode }) {
         </button>
       </form>
       <small>
-        You can send any kind of custom data file you like so long as it is
-        simple text and not a binary file like a Word or Excel document.
+        <i>
+          You can send any custom data file you like so long as it is simple
+          text and not a binary file like a Word or Excel document.
+        </i>
       </small>
     </div>
   )
