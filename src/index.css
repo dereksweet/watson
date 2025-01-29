@@ -86,8 +86,8 @@ body {
 
 /* Reset Button */
 .reset-btn {
-  width: 100%;
-  margin-bottom: 20px;
+  width: 40%;
+  margin-top: 20px;
 }
 
 /* Input Section */
@@ -275,6 +275,37 @@ body {
 
 .back-link:hover {
   color: #0056b3;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #282a36;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.logout-btn {
+  background-color: #ff5555;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+.logout-btn:hover {
+  background-color: #ff4444;
 }
 
 /* Responsive Design */

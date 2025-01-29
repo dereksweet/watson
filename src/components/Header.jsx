@@ -7,12 +7,16 @@ export function Header() {
   const { sub } = jwtDecode(token)
 
   return (
-    <div>
+    <div className='header-container'>
       <h1 className='page-title'>Watson API Demo</h1>
-      <small>
-        Welcome, <User id={sub} />{' '}
-        <button onClick={() => setToken(null)}>Logout</button>
-      </small>
+      <div className='user-info'>
+        <span>
+          Welcome, <User id={sub} />
+        </span>
+        <button className='btn logout-btn' onClick={() => setToken(null)}>
+          Logout
+        </button>
+      </div>
     </div>
   )
 }

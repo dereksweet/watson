@@ -36,17 +36,16 @@ export function Demo() {
         setConversationCode={setConversationCode}
         setConversationName={setConversationName}
       ></ConversationPicker>
-      <ResetConversation
-        conversationCode={conversationCode}
-      ></ResetConversation>
       <div className='input-section'>
         <SendPrompt conversationCode={conversationCode}></SendPrompt>
         <SendFile conversationCode={conversationCode}></SendFile>
       </div>
-      <div className='conversation-feed-label'>{conversationName}</div>
       <ConversationFeed
         conversation={conversation.conversation}
       ></ConversationFeed>
+      <ResetConversation
+        conversationCode={conversationCode}
+      ></ResetConversation>
     </div>
   )
 }
