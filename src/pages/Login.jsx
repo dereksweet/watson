@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useMutation } from '@tanstack/react-query'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import { login } from '../api/users.js'
 import { useAuth } from '../contexts/AuthContext.jsx'
@@ -67,12 +67,6 @@ export function Login() {
             {loginMutation.isLoading ? 'Logging in...' : 'Log In'}
           </button>
         </form>
-
-        <div className='back-link-container'>
-          <Link to='/' className='back-link'>
-            Back to main page
-          </Link>
-        </div>
       </div>
     </div>
   )

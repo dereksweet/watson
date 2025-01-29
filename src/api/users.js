@@ -13,6 +13,17 @@ export const login = async ({ username, password }) => {
   return await res.json()
 }
 
+export const logout = async (setToken) => {
+  fetch(`${import.meta.env.VITE_BACKEND_URL}/user/logout`, {
+    method: 'POST',
+    credentials: 'include',
+  })
+    .then(() => {
+      setToken(null)
+    })
+    .catch((err) => console.error(err))
+}
+
 export const getUserInfo = async (id) => {
   const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/users/${id}`, {
     method: 'GET',

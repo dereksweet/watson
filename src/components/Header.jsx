@@ -1,5 +1,6 @@
 import { User } from './User.jsx'
 import { jwtDecode } from 'jwt-decode'
+import { logout } from '../api/users.js'
 import { useAuth } from '../contexts/AuthContext.jsx'
 
 export function Header() {
@@ -13,7 +14,7 @@ export function Header() {
         <span>
           Welcome, <User id={sub} />
         </span>
-        <button className='btn logout-btn' onClick={() => setToken(null)}>
+        <button className='btn logout-btn' onClick={() => logout(setToken)}>
           Logout
         </button>
       </div>

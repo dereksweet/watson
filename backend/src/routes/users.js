@@ -43,6 +43,11 @@ export function userRoutes(app) {
     }
   })
 
+  app.post('/api/v1/user/logout', (req, res) => {
+    res.clearCookie('watson_token', { httpOnly: false, secure: false, sameSite: 'Lax' })
+    res.status(200).json({ message: 'Logged out successfully' })
+  })
+
   app.get('/api/v1/users/:id', async (req, res) => {
     const userInfo = await getUserInfoById(req.params.id)
     return res.status(200).send(userInfo)
