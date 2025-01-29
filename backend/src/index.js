@@ -8,7 +8,7 @@ try {
   await initDatabase()
   const PORT = process.env.PORT
   app.listen(PORT)
-  console.info(`express server running on http://localhost:${PORT}`)
+  console.info('express server running')
 } catch (err) {
   console.error('error connecting to database:', err)
 }

@@ -2,13 +2,16 @@ import cors from 'cors'
 import multer from 'multer'
 import { createUser, loginUser, getUserInfoById } from '../services/users.js'
 
+import dotenv from 'dotenv'
+dotenv.config()
+
 const upload = multer()
 
 export function userRoutes(app) {
   app.use(
     cors({
-      origin: 'http://localhost:5173', // Frontend origin
-      credentials: true, // Allow cookies to be sent
+      origin: process.env.FRONTEND_URL,
+      credentials: true,
     }),
   )
 

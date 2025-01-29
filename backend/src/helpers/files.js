@@ -1,6 +1,5 @@
 import fs from 'fs/promises'
 
-// Utility function to handle file saving
 export async function saveFile(file) {
   if (!file) return null
   const filePath = `./uploads/${file.originalname}`
@@ -13,7 +12,6 @@ export async function saveFile(file) {
   }
 }
 
-// Utility function to clean up file
 export async function deleteFile(filePath) {
   if (filePath) {
     try {

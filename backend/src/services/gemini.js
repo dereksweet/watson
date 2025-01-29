@@ -3,9 +3,12 @@ import { convertConversationForGemini, buildUserParts } from '../helpers/gemini.
 
 import fs from 'fs'
 
-const project = 'sherlock-447721'
-const location = 'us-central1'
-const textModel = 'gemini-1.0-pro'
+import dotenv from 'dotenv'
+dotenv.config()
+
+const project = process.env.GEMINI_PROJECT
+const location = process.env.GEMINI_LOCATION
+const textModel = process.env.GEMINI_MODEL
 
 const vertexAI = new VertexAI({ project: project, location: location })
 

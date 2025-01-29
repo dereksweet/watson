@@ -5,8 +5,6 @@ import { useAuth } from '../contexts/AuthContext.jsx'
 export const ProtectedRoute = ({ children }) => {
   const [token, , loading] = useAuth()
 
-  console.log('Loading:', loading, 'Token:', token)
-
   if (loading) {
     // Render a loading spinner or placeholder while token is being initialized
     return <div>Loading...</div>
