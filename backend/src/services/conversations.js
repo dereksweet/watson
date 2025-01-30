@@ -37,7 +37,7 @@ export async function createConversation(user_id, code, prompt, filePath, respon
   const conversation = new Conversation({
     user_id: user_id,
     code: code,
-    chunks: [user_chunk._id, ai_chunk._id], // Store ObjectIds
+    chunks: [user_chunk._id, ai_chunk._id],
   })
 
   return await conversation.save()

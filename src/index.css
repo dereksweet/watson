@@ -282,7 +282,7 @@ body {
 .conversation-feed {
   background-color: #191a21;
   padding: 15px;
-  max-height: 800px; /* Ensure a fixed height for overflow */
+  max-height: 800px;
   overflow-y: auto;
   display: flex;
   flex-grow: 1;
@@ -347,12 +347,12 @@ body {
   padding: 10px;
 
   display: flex;
-  justify-content: center; /* Centers horizontally */
-  align-items: center; /* Centers vertically (if needed) */
+  justify-content: center;
+  align-items: center;
 }
 
 .reset-btn {
-  white-space: nowrap; /* Prevents text from wrapping */
-  padding: 10px 20px; /* Ensures adequate spacing */
+  white-space: nowrap;
+  padding: 10px 20px;
   width: 300px;
 }

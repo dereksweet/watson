@@ -33,7 +33,7 @@ export function ConversationPicker({ conversationCode, setConversationCode }) {
 }
 
 ConversationPicker.propTypes = {
-  conversationCode: PropTypes.string.isRequired, // Must be a string and required
-  setConversationCode: PropTypes.func.isRequired, // Must be a function and required
-  setConversationName: PropTypes.func.isRequired, // Must be a function and required
+  conversationCode: PropTypes.string.isRequired,
+  setConversationCode: PropTypes.func.isRequired,
+  setConversationName: PropTypes.func.isRequired,
 }

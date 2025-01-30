@@ -9,15 +9,14 @@ const getCookie = (name) => {
 export const AuthContext = createContext({
   token: null,
   setToken: () => {},
-  loading: true, // Add loading state
+  loading: true,
 })
 
 export const AuthContextProvider = ({ children }) => {
   const [token, setToken] = useState(null)
-  const [loading, setLoading] = useState(true) // Initialize loading as true
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Initialize token from cookies if available
     const storedToken = getCookie('watson_token')
     if (storedToken) {
       setToken(storedToken)

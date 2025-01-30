@@ -15,7 +15,7 @@ export async function saveFile(file) {
 export async function deleteFile(filePath) {
   if (filePath) {
     try {
-      await fs.access(filePath) // Check if file exists
+      await fs.access(filePath)
       await fs.unlink(filePath)
     } catch (err) {
       console.error('Error deleting temporary file:', err)

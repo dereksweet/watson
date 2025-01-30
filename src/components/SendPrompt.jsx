@@ -47,5 +47,5 @@ export function SendPrompt({ conversationCode }) {
 }
 
 SendPrompt.propTypes = {
-  conversationCode: PropTypes.string.isRequired, // Must be a string and required
+  conversationCode: PropTypes.string.isRequired,
 }

@@ -18,7 +18,6 @@ const conversationSchema = new Schema(
   },
 )
 
-// Middleware to remove associated chunks when a conversation is deleted
 conversationSchema.pre('deleteOne', { document: true, query: false }, async function (next) {
   await Chunk.deleteMany({ _id: { $in: this.chunks } })
   next()

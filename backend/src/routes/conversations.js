@@ -4,8 +4,6 @@ import { sendPrompt } from '../services/gemini.js'
 import { requireAuth } from '../middleware/jwt.js'
 
 import multer from 'multer'
-
-// Configure multer for handling file uploads
 const upload = multer()
 
 export function conversationRoutes(app) {

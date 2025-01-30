@@ -36,5 +36,5 @@ export function ResetConversation({ conversationCode }) {
 }
 
 ResetConversation.propTypes = {
-  conversationCode: PropTypes.string.isRequired, // Must be a string and required
+  conversationCode: PropTypes.string.isRequired,
 }
