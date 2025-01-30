@@ -6,7 +6,19 @@ import { requireAuth } from '../middleware/jwt.js'
 import multer from 'multer'
 const upload = multer()
 
+/**
+ * Defines conversation-related API routes.
+ * @param {import('express').Application} app - The Express application instance.
+ */
 export function conversationRoutes(app) {
+  /**
+   * Retrieves a conversation by its code.
+   * @route GET /api/v1/conversations/:code
+   * @access Private (Requires authentication)
+   * @param {string} req.params.code - The unique code identifying the conversation.
+   * @returns {Object} 200 - The requested conversation.
+   * @returns {Object} 500 - Internal server error.
+   */
   app.get('/api/v1/conversations/:code', requireAuth, async (req, res) => {
     try {
       const conversationCode = req.params.code
@@ -19,6 +31,14 @@ export function conversationRoutes(app) {
     }
   })
 
+  /**
+   * Deletes a conversation by its code.
+   * @route DELETE /api/v1/conversations/:code
+   * @access Private (Requires authentication)
+   * @param {string} req.params.code - The unique code identifying the conversation.
+   * @returns {Object} 200 - Success response with deleted conversation details.
+   * @returns {Object} 500 - Internal server error.
+   */
   app.delete('/api/v1/conversations/:code', requireAuth, async (req, res) => {
     try {
       const conversationCode = req.params.code
@@ -35,6 +55,17 @@ export function conversationRoutes(app) {
     }
   })
 
+  /**
+   * Creates or updates a conversation with a new prompt and optional file.
+   * @route POST /api/v1/conversations/:code
+   * @access Private (Requires authentication)
+   * @param {string} req.params.code - The unique code identifying the conversation.
+   * @param {string} req.body.prompt - The user's input prompt.
+   * @param {File} [req.file] - Optional uploaded file.
+   * @returns {Object} 200 - The AI-generated response.
+   * @returns {Object} 400 - Error if prompt is missing.
+   * @returns {Object} 500 - Internal server error.
+   */
   app.post('/api/v1/conversations/:code', requireAuth, upload.single('file'), async (req, res) => {
     const prompt = req.body.prompt?.trim()
 

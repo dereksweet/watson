@@ -1,5 +1,12 @@
 import { Schema } from 'mongoose'
 
+/**
+ * Mongoose schema for a conversation part.
+ * A part can contain either text or inline data.
+ * @typedef {Object} Part
+ * @property {string} [text] - The textual content of the part.
+ * @property {string} [data] - The encoded data content (Base64).
+ */
 const partSchema = new Schema(
   {
     text: String,
