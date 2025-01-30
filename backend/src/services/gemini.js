@@ -12,7 +12,7 @@ const textModel = process.env.GEMINI_MODEL
 
 const vertexAI = new VertexAI({ project: project, location: location })
 
-const systemInstructionsPath = './src/services/system_instructions.txt'
+const systemInstructionsPath = './system_instructions.txt'
 const fileContent = fs.readFileSync(systemInstructionsPath, 'utf-8')
 
 // Instantiate Gemini model
