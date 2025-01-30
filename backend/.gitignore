@@ -27,3 +27,4 @@ dist-ssr
 .env
 docker.env
 secrets
+private_system_instructions.txt
