@@ -27,4 +27,4 @@ dist-ssr
 .husky/*
 
 .env
-watson-credentials.json
+secrets
