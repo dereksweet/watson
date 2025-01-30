@@ -1,0 +1,31 @@
+services:
+  watson-database:
+    image: mongo
+    ports:
+      - '27017:27017'
+  watson-backend:
+    build: backend/
+    env_file:
+      - backend/docker.env
+    environment:
+      - PORT=3001
+      - DATABASE_URL=mongodb://host.docker.internal:27017/watson
+      - FRONTEND_URL=http://localhost:3000
+      - GOOGLE_APPLICATION_CREDENTIALS=/backend/secrets/watson-credentials.json
+      - GEMINI_LOCATION=us-central1
+      - GEMINI_MODEL=gemini-1.5-pro
+    ports:
+      - '3001:3001'
+    depends_on:
+      - watson-database
+    volumes:
+      - ./backend/secrets:/backend/secrets
+  watson-frontend:
+    build:
+      context: .
+      args:
+        VITE_BACKEND_URL: http://localhost:3001/api/v1
+    ports:
+      - '3000:80'
+    depends_on:
+      - watson-backend
