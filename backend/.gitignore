@@ -24,7 +24,6 @@ dist-ssr
 *.sln
 *.sw?
 
-.husky/*
-
 .env
+docker.env
 secrets
