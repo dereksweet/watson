@@ -1,0 +1,3 @@
+This is where you should put your basic system instructions for your AI chatbot.
+
+Give them a name, tell them who they are serving, and any background information you want them to know before they chat with someone.
