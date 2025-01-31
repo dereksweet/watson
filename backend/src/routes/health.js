@@ -1,7 +1,7 @@
 import { sendPrompt } from '../services/gemini.js'
 
-const TEST_PROMPT = 'Hello. How are you?'
-const EXPECTED_RESPONSE_SUBSTRING = 'doing well'
+const TEST_PROMPT = 'Hello. Please repeat the word "SUCCESS" in all caps'
+const EXPECTED_RESPONSE_SUBSTRING = 'SUCCESS'
 
 /**
  * Defines the health check API route.

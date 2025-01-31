@@ -37,6 +37,7 @@ export function userRoutes(app) {
     } catch (err) {
       return res.status(400).json({
         error: 'failed to create the user, does the username already exist?',
+        details: JSON.stringify(err),
       })
     }
   })

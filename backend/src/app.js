@@ -7,6 +7,7 @@ import { userRoutes } from './routes/users.js'
 
 const app = express()
 app.use(cors())
+app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 healthRoutes(app)
