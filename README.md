@@ -8,7 +8,7 @@ The API is written in NodeJS on the Express Framework, and the Frontend Demo is 
 # Setup Instructions
 
 ## Step 1: Complete the Backend Setup Instructions
-Before you start on setting up the frontend demo, please follow the setup instructions for the backend portion of the application. You can find them here: https://github.com/dereksweet/watson/tree/main/backend
+Before you start on setting up the frontend demo, please follow the setup instructions for the backend portion of the application. You can find them here: https://github.com/dereksweet/watson/tree/main/backend/README.md
 
 ## Step 2: Install Frontend Dependencies
 
@@ -32,6 +32,12 @@ Create a `.env` file in the root directory and add the following:
 VITE_BACKEND_URL=http://localhost:3001/api/v1
 ```
 
+## Step 4: Create a User
+
+Follow the instructions in the API Documentation of the backend to create a user for yourself in your local database (https://github.com/dereksweet/watson/blob/main/backend/README.md#user-signup) 
+
+Use the `login` endpoint on the API to verify that you created your user succesfully. It should return an access token for you to use as your Bearer token for any other secure requests. (https://github.com/dereksweet/watson/blob/main/backend/README.md#user-login)
+
 ## Step 5: Start the Development Server
 
 ```sh
@@ -41,3 +47,17 @@ npm run dev
 By default, the demo will be available at `http://localhost:5173`.
 
 # Demo Explanation
+
+## Login Screen
+When you first visit the Demo application you will be presented with a login screen: 
+
+<img width="658" alt="Screenshot 2025-01-31 at 3 07 02 PM" src="https://github.com/user-attachments/assets/0295649f-af5a-4914-a95b-edc332cf4349" />
+
+If you created your user correctly in Step 4 above the login should succeed. If you are having issues logging in verify that your user exists in your local Mongo DB.
+
+# Main Demo Screen
+If you were able to login correctly, you should see a screen that looks like the following:
+
+<img width="839" alt="Screenshot 2025-01-31 at 3 08 54 PM" src="https://github.com/user-attachments/assets/e094c690-d38a-4840-8eae-6fac6ef545a2" />
+
+
