@@ -57,7 +57,7 @@ export function userRoutes(app) {
 
       res.cookie('watson_token', token, {
         httpOnly: false,
-        sameSite: 'Strict',
+        sameSite: 'None',
         secure: false,
       })
 
