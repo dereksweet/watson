@@ -57,7 +57,7 @@ export function userRoutes(app) {
 
       res.cookie('watson_token', token, {
         httpOnly: false,
-        sameSite: 'Lax',
+        sameSite: 'Strict',
         secure: false,
       })
 
@@ -76,7 +76,7 @@ export function userRoutes(app) {
    * @returns {Object} 200 - Logout success message.
    */
   app.post('/api/v1/user/logout', (req, res) => {
-    res.clearCookie('watson_token', { httpOnly: false, secure: false, sameSite: 'Lax' })
+    res.clearCookie('watson_token', { httpOnly: false, secure: false, sameSite: 'Strict' })
     res.status(200).json({ message: 'Logged out successfully' })
   })
 
