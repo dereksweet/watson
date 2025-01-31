@@ -56,9 +56,9 @@ export function userRoutes(app) {
       const token = await loginUser(req.body)
 
       res.cookie('watson_token', token, {
-        httpOnly: false,
+        httpOnly: true,
         sameSite: 'None',
-        secure: false,
+        secure: true,
       })
 
       return res.status(200).send({ token })
