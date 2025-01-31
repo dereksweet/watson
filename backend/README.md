@@ -3,8 +3,6 @@ This is an API Application written in Node.js that interfaces with Google Gemini
 
 # Setup Instructions
 
-# API Setup Instructions
-
 ## Step 1: Clone the Repository
 
 ```sh
