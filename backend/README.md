@@ -1,6 +1,46 @@
 ## Overview
 This is an API Application written in Node.js that interfaces with Google Gemini. It will not only handle the communications with the Google Gemini API but it will also manage various conversations with Gemini by tracking them, per user and conversation code, in a mongo DB. The user is identified by the Bearer token that is passed in for Authentication by the `sub` claim to ensure that a user can only work with their conversations. For this reason there is a signup endpoint to create a user, as well as a login endpoint to return an access token. 
 
+# Setup Instructions
+
+# API Setup Instructions
+
+## Step 1: Clone the Repository
+
+```sh
+git clone git@github.com:dereksweet/watson.git
+cd watson/backend
+```
+
+## Step 2: Install Dependencies
+
+```sh
+npm install
+```
+
+## Step 3: Configure Environment Variables
+
+Create a `.env` file in the root directory and add the following:
+
+```env
+PORT=3001
+DATABASE_URL=mongodb://localhost:27017/watson
+GOOGLE_APPLICATION_CREDENTIALS={FULL PATH TO YOUR CLONED CODE}/backend/secrets/watson-credentials.json
+JWT_SECRET=your-jwt-secret
+FRONTEND_URL=http://localhost:5173
+GEMINI_PROJECT={Your google console project ID}
+GEMINI_LOCATION=us-central1
+GEMINI_MODEL=gemini-1.0-pro
+```
+
+## Step 4: Start the Development Server
+
+```sh
+npm run dev
+```
+
+By default, the API will be available at `http://localhost:3001/api/v1`.
+
 # API Documentation
 
 This API provides various endpoints for health checks, user management, and conversations. It is built using Express.js and includes authentication for protected routes.
