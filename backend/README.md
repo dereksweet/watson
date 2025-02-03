@@ -6,9 +6,15 @@ This is an API Application written in Node.js that interfaces with Google Gemini
 # Setup Instructions
 
 ## Step 1: Clone the Repository
+If you have arrived here from the Frontend README, then you don't need to do this first step. If you are setting this project up in isolation, though, then you will still need to clone the code repository: 
 
 ```sh
 git clone git@github.com:dereksweet/watson.git
+```
+
+## Step 2: Move into the backend folder
+
+```
 cd watson/backend
 ```
 
