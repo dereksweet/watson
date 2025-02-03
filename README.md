@@ -7,6 +7,11 @@ The API is written in NodeJS on the Express Framework, and the Frontend Demo is 
 
 # Setup Instructions
 
+## Step 1: Clone the Repository
+```
+git clone git@github.com:dereksweet/watson.git
+```
+
 ## Step 1: Complete the Backend Setup Instructions
 Before you start on setting up the frontend demo, please follow the setup instructions for the backend portion of the application. You can find them here: https://github.com/dereksweet/watson/tree/main/backend/README.md
 
