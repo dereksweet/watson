@@ -18,20 +18,20 @@ git clone git@github.com:dereksweet/watson.git
 cd watson/backend
 ```
 
-## Step 2: Install Dependencies
+## Step 3: Install Dependencies
 
 ```sh
 npm install
 ```
 
-## Step 3: Setup Google Service Account
+## Step 4: Setup Google Service Account
 
 - You must setup a Google Cloud Project
 - Create a Service Account for that project
 - Create a key for that service account
 - Download the credentials file for that key and place it in backend/secrets/watson-credentials.json
 
-## Step 4: Configure Environment Variables
+## Step 5: Configure Environment Variables
 
 Create a `.env` file in the root directory and add the following:
 
@@ -46,7 +46,7 @@ GEMINI_LOCATION=us-central1
 GEMINI_MODEL=gemini-1.0-pro
 ```
 
-## Step 5: Start the Development Server
+## Step 6: Start the Development Server
 
 ```sh
 npm run dev
