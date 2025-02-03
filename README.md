@@ -8,6 +8,8 @@ The API is written in NodeJS on the Express Framework, and the Frontend Demo is 
 # Setup Instructions
 
 ## Step 1: Clone the Repository
+Open a terminal and change to the folder that you'd like to place the Watson API and Demo code, then type the following to checkout the code: 
+
 ```
 git clone git@github.com:dereksweet/watson.git
 ```
