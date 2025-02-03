@@ -14,10 +14,10 @@ Open a terminal and change to the folder that you'd like to place the Watson API
 git clone git@github.com:dereksweet/watson.git
 ```
 
-## Step 1: Complete the Backend Setup Instructions
+## Step 2: Complete the Backend Setup Instructions
 Before you start on setting up the frontend demo, please follow the setup instructions for the backend portion of the application. You can find them here: https://github.com/dereksweet/watson/tree/main/backend/README.md
 
-## Step 2: Install Frontend Dependencies
+## Step 3: Install Frontend Dependencies
 
 If you are still in the `backend` folder go back to the root folder
 
@@ -31,7 +31,7 @@ Then install the front end dependencies
 npm install
 ```
 
-## Step 3: Configure Environment Variables
+## Step 4: Configure Environment Variables
 
 Create a `.env` file in the root directory and add the following:
 
@@ -39,13 +39,13 @@ Create a `.env` file in the root directory and add the following:
 VITE_BACKEND_URL=http://localhost:3001/api/v1
 ```
 
-## Step 4: Create a User
+## Step 5: Create a User
 
 Follow the instructions in the API Documentation of the backend to create a user for yourself in your local database (https://github.com/dereksweet/watson/blob/main/backend/README.md#user-signup) 
 
 Use the `login` endpoint on the API to verify that you created your user succesfully. It should return an access token for you to use as your Bearer token for any other secure requests. (https://github.com/dereksweet/watson/blob/main/backend/README.md#user-login)
 
-## Step 5: Start the Development Server
+## Step 6: Start the Development Server
 
 ```sh
 npm run dev
